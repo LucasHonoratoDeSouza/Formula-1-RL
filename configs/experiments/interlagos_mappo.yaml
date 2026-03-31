@@ -1,0 +1,194 @@
+seed:
+  seed: 17
+
+track:
+  name: "Interlagos"
+  laps: 15
+  pit_time_loss_s: 20.5
+  safety_car_duration_steps: 18
+  segments:
+    - name: "Reta Principal"
+      length_m: 620
+      curvature: 0.08
+      grip: 1.02
+      drs_zone: true
+      overtaking_factor: 0.94
+    - name: "Senna S"
+      length_m: 210
+      curvature: 0.88
+      grip: 0.95
+      overtaking_factor: 0.82
+    - name: "Curva do Sol"
+      length_m: 310
+      curvature: 0.38
+      grip: 0.98
+      overtaking_factor: 0.58
+    - name: "Reta Oposta"
+      length_m: 760
+      curvature: 0.05
+      grip: 1.01
+      drs_zone: true
+      overtaking_factor: 0.96
+    - name: "Descida do Lago"
+      length_m: 280
+      curvature: 0.58
+      grip: 0.97
+      overtaking_factor: 0.57
+    - name: "Ferradura"
+      length_m: 265
+      curvature: 0.78
+      grip: 0.93
+      overtaking_factor: 0.39
+    - name: "Laranjinha"
+      length_m: 180
+      curvature: 0.84
+      grip: 0.92
+      overtaking_factor: 0.35
+    - name: "Pinheirinho"
+      length_m: 225
+      curvature: 0.83
+      grip: 0.93
+      overtaking_factor: 0.43
+    - name: "Bico de Pato"
+      length_m: 170
+      curvature: 0.89
+      grip: 0.91
+      pit_entry: true
+      overtaking_factor: 0.30
+    - name: "Mergulho"
+      length_m: 235
+      curvature: 0.66
+      grip: 0.96
+      overtaking_factor: 0.41
+    - name: "Junção"
+      length_m: 215
+      curvature: 0.58
+      grip: 0.98
+      pit_exit: true
+      overtaking_factor: 0.46
+
+car:
+  mass_kg: 798.0
+  fuel_capacity_kg: 110.0
+  max_speed_mps: 97.0
+  max_accel_mps2: 10.8
+  max_brake_mps2: 18.5
+  drag_coefficient: 0.00145
+  tire_temp_nominal_c: 94.0
+  tire_temp_window_c: 15.0
+
+race:
+  time_step_s: 0.5
+  max_steps: 1800
+  nearby_opponents: 3
+  random_weather_scale: 0.018
+  initial_wetness: 0.06
+  crash_damage_threshold: 0.92
+  drs_gap_m: 58.0
+  overtake_window_m: 14.0
+  yellow_flag_steps: 10
+
+ppo:
+  rollout_steps: 192
+  train_iterations: 10
+  epochs: 6
+  mini_batch_size: 384
+  gamma: 0.995
+  gae_lambda: 0.95
+  clip_ratio: 0.20
+  entropy_coef: 0.010
+  value_coef: 0.70
+  learning_rate: 0.0003
+  max_grad_norm: 0.80
+  hidden_dim: 256
+  shared_policy: true
+  target_kl: 0.03
+  normalize_advantages: true
+
+logging:
+  log_interval: 1
+  checkpoint_interval: 2
+  artifact_dir: "artifacts"
+  run_name: "interlagos-mappo-f1-teams"
+
+drivers:
+  - name: "MCL-01"
+    team: "McLaren"
+    engine_power: 0.97
+    aero_efficiency: 0.98
+    tire_management: 0.93
+    brake_efficiency: 0.95
+    aggressiveness: 0.73
+    start_compound: "soft"
+  - name: "FER-01"
+    team: "Ferrari"
+    engine_power: 0.96
+    aero_efficiency: 0.95
+    tire_management: 0.89
+    brake_efficiency: 0.94
+    aggressiveness: 0.79
+    start_compound: "soft"
+  - name: "RBR-01"
+    team: "Red Bull Racing"
+    engine_power: 0.98
+    aero_efficiency: 0.99
+    tire_management: 0.92
+    brake_efficiency: 0.96
+    aggressiveness: 0.84
+    start_compound: "soft"
+  - name: "MER-01"
+    team: "Mercedes"
+    engine_power: 0.95
+    aero_efficiency: 0.96
+    tire_management: 0.91
+    brake_efficiency: 0.95
+    aggressiveness: 0.71
+    start_compound: "medium"
+  - name: "AMR-01"
+    team: "Aston Martin"
+    engine_power: 0.92
+    aero_efficiency: 0.91
+    tire_management: 0.89
+    brake_efficiency: 0.90
+    aggressiveness: 0.68
+    start_compound: "medium"
+  - name: "ALP-01"
+    team: "Alpine"
+    engine_power: 0.90
+    aero_efficiency: 0.89
+    tire_management: 0.86
+    brake_efficiency: 0.88
+    aggressiveness: 0.74
+    start_compound: "medium"
+  - name: "WIL-01"
+    team: "Williams"
+    engine_power: 0.91
+    aero_efficiency: 0.87
+    tire_management: 0.84
+    brake_efficiency: 0.86
+    aggressiveness: 0.76
+    start_compound: "hard"
+  - name: "HAA-01"
+    team: "Haas"
+    engine_power: 0.89
+    aero_efficiency: 0.84
+    tire_management: 0.80
+    brake_efficiency: 0.83
+    aggressiveness: 0.75
+    start_compound: "hard"
+  - name: "SAU-01"
+    team: "Sauber"
+    engine_power: 0.88
+    aero_efficiency: 0.83
+    tire_management: 0.81
+    brake_efficiency: 0.84
+    aggressiveness: 0.67
+    start_compound: "hard"
+  - name: "RB-01"
+    team: "Racing Bulls"
+    engine_power: 0.90
+    aero_efficiency: 0.88
+    tire_management: 0.85
+    brake_efficiency: 0.87
+    aggressiveness: 0.80
+    start_compound: "medium"
