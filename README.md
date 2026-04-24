@@ -271,6 +271,3 @@ Este projeto é uma base séria para iteração, mas não tenta ser um simulador
 - modelagem mais fiel de undercut/overcut e delta real de pit lane;
 - integração com trackers como Weights & Biases ou MLflow.
 
-## Status
-
-Implementado e validado com testes automatizados.
